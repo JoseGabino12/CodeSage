@@ -1,7 +1,9 @@
-import eslintPluginAstro, { rules } from 'eslint-plugin-astro'
+import eslintPluginAstro from 'eslint-plugin-astro'
+import eslintPluginTypeScript from '@typescript-eslint/parser'
 
 export default [
   ...eslintPluginAstro.configs.recommended,
+  eslintPluginTypeScript.configs,
   {
     files: ['**/*.js', '**/*.jsx', '**/*.ts', '**/*.tsx', '**/*.astro'],
     rules: {

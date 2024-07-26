@@ -2,30 +2,7 @@
 import { Subtitle } from './Subtitle'
 ---
 
-<div class="home">
-  <h1>What if your code as a developer was</h1>
+<div class="flex flex-col justify-center items-center gap-5 h-screen py-0 px-5 dark:text-white">
+  <h1 class="text-4xl font-light">What if your code as a developer was</h1>
   <Subtitle client:load />
 </div>
-
-<style>
-  h1 {
-    font-size: 2.5rem;
-    font-weight: 700;
-    color: var(--text-color);
-  }
-
-  h2 {
-    font-size: 1.5rem;
-    font-weight: 400;
-    color: var(--text-color);
-  }
-
-  .home {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    padding: 0 20px;
-  }
-</style>

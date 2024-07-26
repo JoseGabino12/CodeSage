@@ -1,6 +1,6 @@
 # CodeSage
 
-![CodeSage Icon](public/buho.webp)
+![CodeSage Icon](public/buhoSinFondo.png)
 
 CodeSage es una plataforma web que evalúa la calidad de fragmentos de código según los principios de Clean Code. Utilizando modelos de OpenAI, proporciona calificaciones y recomendaciones para mejorar la legibilidad y simplicidad del código.
 
@@ -17,7 +17,7 @@ CodeSage es una plataforma web que evalúa la calidad de fragmentos de código s
 - **Astro**: Framework estático para la construcción del sitio web.
 - **React**: Biblioteca de JavaScript para construir interfaces de usuario.
 - **TypeScript**: Lenguaje de programación que extiende JavaScript añadiendo tipos estáticos.
-- **Shadcn**: Componentes UI personalizables para React.
+- **Tailwind CSS**: Framework de diseño CSS para la construcción de interfaces de usuario.
 - **OpenAI**: Modelos de inteligencia artificial para el análisis y retroalimentación del código.
 
 ## Instalación

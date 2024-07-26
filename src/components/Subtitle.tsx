@@ -17,7 +17,7 @@ export const Subtitle = () => {
   }, [])
 
   return (
-    <div style={ { fontSize: '30px', fontWeight: 'bold', letterSpacing: 2 } }>
+    <div className='text-4xl font-semibold tracking-wide'>
       <span ref={ subtitle } />
     </div>
   )
