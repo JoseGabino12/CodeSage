@@ -5,6 +5,7 @@ export default [
   ...eslintPluginAstro.configs.recommended,
   eslintPluginTypeScript.configs,
   {
+    plugin: ['tailwindcss'],
     files: ['**/*.js', '**/*.jsx', '**/*.ts', '**/*.tsx', '**/*.astro'],
     rules: {
       'indent': ['error', 2],

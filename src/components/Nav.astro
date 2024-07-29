@@ -1,6 +1,6 @@
 ---
-import { ThemeToggleButton } from './ThemeToggleButton'
 import { GithubIcon } from '../icons/GithubIcon'
+import '../styles/darkModeButton.css'
 ---
 <nav>
   <ul>
@@ -14,7 +14,16 @@ import { GithubIcon } from '../icons/GithubIcon'
         <GithubIcon width={ 26 } height={ 26 } />
       </a>
       
-      <ThemeToggleButton client:load />
+      <button id='dark-mode-toggle' class="theme__icon">
+        <span></span>
+        <span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+        </span>
+        <span></span>
+      </button>
     </li>
   </ul>
 </nav>
@@ -41,3 +50,44 @@ import { GithubIcon } from '../icons/GithubIcon'
     align-items: center;
   }
 </style>
+
+<script is:inline>
+  let remove = null
+  const matchMedia = window.matchMedia('(prefers-color-scheme: dark)')
+
+  const getThemePreference = () => {
+    if (typeof localStorage !== 'undefined') {
+      return localStorage.getItem('theme') ?? 'dark'
+    }
+
+    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+  }
+
+  const updateIcon = (themePreference) => {
+    themePreference === 'dark' ? document.getElementById('dark-mode-toggle').classList.add('theme__icon_dark') : document.getElementById('dark-mode-toggle').classList.remove('theme__icon_dark')
+  }
+
+  const updateTheme = () => {
+    if (remove != null) {
+      remove()
+    }
+    matchMedia.addEventListener('change', updateTheme)
+    remove = () => {
+      matchMedia.removeEventListener('change', updateTheme)
+    }
+
+    const themePreference = getThemePreference()
+    const isDark = themePreference === 'dark' || (themePreference === 'system' && matchMedia.matches)
+
+    updateIcon(themePreference)
+    isDark ? document.documentElement.classList.add('dark') : document.documentElement.classList.remove('dark')
+  }
+
+  updateTheme()
+
+  document.getElementById('dark-mode-toggle').addEventListener('click', () => {
+    localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'light' : 'dark')
+    updateTheme()
+  })
+
+</script>
