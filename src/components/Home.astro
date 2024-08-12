@@ -1,8 +1,30 @@
 ---
 import { Subtitle } from './Subtitle'
+import Body from './Body'
+import { ArrowDownIcon } from '../icons/ArrowDownIcon'
+import Footer from './Footer'
 ---
 
-<div class="flex flex-col justify-center items-center gap-5 h-screen py-0 px-5 dark:text-white">
-  <h1 class="text-4xl font-light">What if your code as a developer was</h1>
-  <Subtitle client:load />
+<div class="flex flex-col justify-center items-center gap-5 py-0 px-5 dark:text-white">
+  <div class="flex flex-col pt-72 pb-80 text-center gap-10 items-center">
+    <h1 class="text-5xl font-light">What if your code as a developer was</h1>
+    <Subtitle client:load />
+
+    <div class="mt-10 hover:cursor-pointer" id="arrowDown">
+      <ArrowDownIcon width={75} height={75} />
+    </div>
+  </div>
+
+
+  <Body client:load />
+
+  <Footer />
 </div>
+
+<script>
+  const arrow = document.getElementById('arrowDown');
+
+  arrow?.addEventListener('click', () => {
+    window.scrollTo({top: 800, behavior: 'smooth'})
+  })
+</script>
