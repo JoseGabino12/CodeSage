@@ -36,9 +36,9 @@ const Card = ({card, index, styleTextCol, styleImageCol}: CardProps) => {
       </div>
 
       <div 
-        className={`flex flex-col items-center gap-y-5 p-4 ${styleImageCol} row-start-${index+1} row-end-${index+2} drop-shadow-2xl`}
+        className={`flex flex-col items-center gap-y-5 p-4 ${styleImageCol} drop-shadow-2xl`}
       >
-        <img src={odd ? welcome.src : evaluation.src} className="w-full h-full"/>
+        <img src={odd ? welcome.src : evaluation.src} className="w-full h-full" />
       </div>
     </> 
    );

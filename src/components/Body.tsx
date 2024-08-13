@@ -12,7 +12,7 @@ const Body = () => {
   }, [])
 
   return ( 
-    <div className='grid grid-cols-6 grid-rows-3 gap-y-28 max-w-screen-xl'>
+    <div className='grid grid-cols-6 grid-rows-3 gap-y-28 max-w-screen-xl items-center'>
 
       {data.map( (info, index) => {
         const odd = index % 2 === 0;
@@ -21,8 +21,8 @@ const Body = () => {
           key={index} 
           card={info}
           index={index}
-          styleTextCol={`${odd ? 'col-start-1 col-end-3 ' : 'col-start-5 col-end-7'}`}
-          styleImageCol={`${odd ? 'col-start-4 col-end-7' : 'col-start-1 col-end-4'}`}
+          styleTextCol={`${odd ? 'col-start-1 col-end-3 row-start-1' : 'col-start-5 col-end-7 row-start-2'}`}
+          styleImageCol={`${odd ? 'col-start-4 col-end-7 row-start-1' : 'col-start-1 col-end-4 row-start-2'}`}
         /> 
       })}
 
