@@ -2,7 +2,7 @@
 import { GithubIcon } from '../icons/GithubIcon'
 import '../styles/darkModeButton.css'
 ---
-<nav>
+<nav id="main-nav">
   <ul>
     <li>
       <a href="/">
@@ -31,9 +31,17 @@ import '../styles/darkModeButton.css'
 <style>
   nav {
     width: 100%;
-    position: fixed;
     backdrop-filter: blur(12px);
     background-color: rgba(254, 254, 254, 0);
+    z-index: 1;
+  }
+
+  .sticky {
+    position: sticky;
+  }
+
+  .fixed {
+    position: fixed;
   }
 
   ul {
@@ -89,5 +97,20 @@ import '../styles/darkModeButton.css'
     localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'light' : 'dark')
     updateTheme()
   })
+
+  const setNavPosition = () => {
+    const path = window.location.pathname;
+    const nav = document.getElementById('main-nav');
+    if (path === '/' || path === '/home') {
+      nav.classList.add('fixed');
+      nav.classList.remove('sticky');
+    } else {
+      nav.classList.add('sticky');
+      nav.classList.remove('fixed');
+    }
+  }
+
+  window.addEventListener('load', setNavPosition);
+  window.addEventListener('popstate', setNavPosition);
 
 </script>
