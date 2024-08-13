@@ -10,8 +10,8 @@ import Footer from './Footer'
     <h1 class="text-5xl font-light">What if your code as a developer was</h1>
     <Subtitle client:load />
 
-    <div class="mt-10 hover:cursor-pointer" id="arrowDown">
-      <ArrowDownIcon width={75} height={75} />
+    <div class="mt-30 hover:cursor-pointer" id="arrowDown">
+      <ArrowDownIcon width={75} height={75} client:load/>
     </div>
   </div>
 
@@ -25,6 +25,6 @@ import Footer from './Footer'
   const arrow = document.getElementById('arrowDown');
 
   arrow?.addEventListener('click', () => {
-    window.scrollTo({top: 800, behavior: 'smooth'})
+    window.scrollTo({top: 700, behavior: 'smooth'})
   })
 </script>

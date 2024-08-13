@@ -1,6 +1,6 @@
 .down-arrow {
   position: absolute;
-  top: calc(70vh - 60px);
+  top: calc(75vh - 60px);
   left: calc(50% - 40px);
   height: 50px;
   animation: jumpInfinite 1.5s infinite;

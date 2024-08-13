@@ -3,6 +3,7 @@ import AOS from 'aos'
 import 'aos/dist/aos.css'
 import Card from './Card'
 import { data } from '../data/dataCard'
+import { ArrowRightIcon } from '../icons/ArrowRightIcon'
 
 
 const Body = () => {
@@ -15,11 +16,40 @@ const Body = () => {
   // }
 
   return ( 
-    <div className='grid grid-cols-6 grid-rows-2 gap-y-20 max-w-screen-xl'>
+    <div className='grid grid-cols-6 grid-rows-3 gap-y-20 max-w-screen-xl'>
 
       {data.map( (info, index) => {
-        return <Card card={info} style={`font-bold text-2xl items-center ${index % 2 === 0 ? 'col-start-1 col-end-3 ' : 'col-start-5 col-end-7' } flex flex-col gap-y-3 border rounded-md p-3 row-start-${index+1}`} key={index} /> 
+        const odd = index % 2 === 0;
+        return <Card
+          key={index} 
+          card={info}
+          style={`${odd ? 'col-start-1 col-end-3 ' : 'col-start-5 col-end-7'} row-start-${index+1} row-end-${index+2}`}
+          animationEffect={`${odd ? 'fade-right' : 'fade-left'}`} 
+        /> 
       })}
+
+      <section className='flex flex-col items-center gap-y-5 border rounded-md p-3 col-start-3 col-end-5 row-start-5'>
+        <h3
+          className='text-center text-3xl'
+        >
+          {data[2].title}
+        </h3>
+
+        <p className='
+          text-lg 
+          text-center 
+          font-light'
+        >
+          {data[2].content}
+        </p>
+
+        <button className='font-bold rounded-md bg-slate-600 p-4 w-1/2'>
+          <div className='flex items-center justify-around'>
+            <p className='font-bold tex-xl'>Get Started</p>
+            <ArrowRightIcon width={40} height={40}/>
+          </div>
+        </button>
+      </section>
 
       {/* First row
       <div

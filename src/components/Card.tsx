@@ -2,20 +2,21 @@ import type { ICard } from "../../interfaces/interfaces";
 
 interface CardProps {
   card: ICard,
-  style: string
+  style: string,
+  animationEffect: string
 }
 
-const Card = ({card, style}: CardProps) => {
+const Card = ({card, style, animationEffect}: CardProps) => {
 
   return ( 
     <div
-      className={style} 
-      data-aos="fade-right"
+      className={`flex flex-col items-center gap-y-5 border rounded-md p-3 ${style}`} 
+      data-aos={animationEffect}
       data-aos-duration='2000'
     >
 
     <h3
-      className='text-center text-3xl'
+      className='text-center text-3xl font-bold'
     >
       {card.title}
     </h3>
